@@ -25,12 +25,16 @@ class Anagram
       wordArray1.sort!{ |a, b| a <=> b }
       wordArray2.sort!{ |a, b| a <=> b }
 
+    #prep for antigram checking
+
+
     #check if theyre equal
       if wordArray1 == wordArray2
         true
       else
         false
       end
+
     else
       "FAKE WORDS. Get some vowels. Pathetic. I have great vowels. People love my vowels."
     end
@@ -43,15 +47,18 @@ class Anagram
     antiarray1 = antigram1.split("")
     antiarray2 = antigram2.split("")
 
+    antiarray1.uniq!
+    antiarray2.uniq!
+    # binding.pry
+
     totallength = antiarray1.length + antiarray2.length
     antiarray1.concat(antiarray2)
     antiarray1.uniq!
     uniquelength = antiarray1.length
-# binding.pry
     if uniquelength == totallength
-      true
+      "This is an antigram"
     else
-      false
+      "This is not an antigram"
     end
   end
 end

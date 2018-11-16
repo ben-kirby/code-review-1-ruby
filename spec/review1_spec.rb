@@ -60,11 +60,21 @@ describe ('the class') do
 
  it('Detects an antigram of one letter') do
       word = Anagram.new('a', 'b')
-    expect(word.antigram()).to(eq(true))
+    expect(word.antigram()).to(eq("This is an antigram"))
     end
 
   it('Detects an antigram of two letters') do
        word = Anagram.new('ab', 'cd')
-     expect(word.antigram()).to(eq(true))
+     expect(word.antigram()).to(eq("This is an antigram"))
+     end
+
+   it('Detects an antigram of two words that contain two or more of the same letter') do
+        word = Anagram.new('aabbbc', 'dddeeeeefff')
+      expect(word.antigram()).to(eq("This is an antigram"))
+      end
+
+  it('Detects an antigram of two words that contain two or more of the same letter') do
+       word = Anagram.new('aabbbc', 'bbbbbbbccd')
+     expect(word.antigram()).to(eq("This is not an antigram"))
      end
   end
