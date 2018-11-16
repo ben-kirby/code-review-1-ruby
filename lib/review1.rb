@@ -5,22 +5,23 @@ class Anagram
   end
 
   def checker
-    #check for vowels
-
     array1 = []
     array2 = []
 
     array1 = @word1.split("")
     array2 = @word2.split("")
 
-    #remove spaces
+    #check for vowels
+
+    array1.reject!{ |e| e == " " }
+    array2.reject!{ |e| e == " " }
 
     array1.map!{ |e| e.upcase }
     array2.map!{ |e| e.upcase }
 
     array1.sort!{ |a, b| a <=> b }
     array2.sort!{ |a, b| a <=> b }
-    if (array1 & array2 == array2)
+    if array1 == array2
       true
     else
       false
