@@ -5,7 +5,13 @@ class Anagram
   end
 
   def checker
-    if @word1 == @word2
+    array1 = []
+    array2 = []
+
+    array1 = @word1.split("")
+    array2 = @word2.split("")
+
+    if (array1 & array2 == array2)
       true
     else
       false
