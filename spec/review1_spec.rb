@@ -13,13 +13,18 @@ describe ('the class') do
       expect(word.checker()).to(eq(false))
       end
 
-    it('Checks if a single word passed through twise are the same') do
+    it('Checks if a single word passed through twice are the same') do
         word = Anagram.new('dog', 'dog')
       expect(word.checker()).to(eq(true))
       end
 
-    it('Checks if two single word arguments are different') do
-        word = Anagram.new('dog', 'god')
+    it('Checks if two single word non-anagrams are different') do
+        word = Anagram.new('dog', 'cat')
       expect(word.checker()).to(eq(false))
+      end
+
+    it('Checks if two single word non-anagrams are different') do
+        word = Anagram.new('dog', 'god')
+      expect(word.checker()).to(eq(true))
       end
   end

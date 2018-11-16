@@ -11,6 +11,13 @@ class Anagram
     array1 = @word1.split("")
     array2 = @word2.split("")
 
+    #remove spaces
+
+    #change to upper
+
+    array1.sort!{ |a, b| a <=> b }
+    array2.sort!{ |a, b| a <=> b }
+
     if (array1 & array2 == array2)
       true
     else
