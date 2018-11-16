@@ -1,10 +1,11 @@
 class Anagram
-  def initialize(word)
-    @word = word
+  def initialize(word1, word2)
+    @word1 = word1
+    @word2 = word2
   end
 
   def checker
-    if @word == "a"
+    if @word1 == @word2
       true
     else
       false
