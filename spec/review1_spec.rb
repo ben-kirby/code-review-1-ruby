@@ -58,8 +58,13 @@ describe ('the class') do
      expect(word.anagram()).to(eq(true))
      end
 
- it('Detects an antigram') do
-      word = Anagram.new('abc', 'def')
+ it('Detects an antigram of one letter') do
+      word = Anagram.new('a', 'b')
     expect(word.antigram()).to(eq(true))
     end
+
+  it('Detects an antigram of two letters') do
+       word = Anagram.new('ab', 'cd')
+     expect(word.antigram()).to(eq(true))
+     end
   end

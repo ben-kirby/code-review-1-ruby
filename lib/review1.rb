@@ -37,6 +37,21 @@ class Anagram
   end
 
   def antigram
-    
+    antigram1 = @userWord1
+    antigram2 = @userword2
+
+    antiarray1 = antigram1.split("")
+    antiarray2 = antigram2.split("")
+
+    totallength = antiarray1.length + antiarray2.length
+    antiarray1.concat(antiarray2)
+    antiarray1.uniq!
+    uniquelength = antiarray1.length
+# binding.pry
+    if uniquelength == totallength
+      true
+    else
+      false
+    end
   end
 end
