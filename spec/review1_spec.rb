@@ -10,7 +10,7 @@ describe ('the class') do
 
     it('Checks if an input letter "b" is the different than "a" and returns a bool') do
         word = Anagram.new('a', 'b')
-      expect(word.anagram()).to(eq(false))
+      expect(word.anagram()).to(eq("FAKE WORDS. Get some vowels. Pathetic. I have great vowels. People love my vowels."))
       end
 
     it('Checks if a single word passed through twice are the same') do
@@ -47,4 +47,9 @@ describe ('the class') do
         word = Anagram.new('Dormitory', 'dirty apartment')
       expect(word.anagram()).to(eq(false))
       end
+
+     it('Checks if both words have vowels or a y)') do
+          word = Anagram.new('Zxv', 'vxz')
+        expect(word.anagram()).to(eq("FAKE WORDS. Get some vowels. Pathetic. I have great vowels. People love my vowels."))
+        end
   end
