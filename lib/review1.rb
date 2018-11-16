@@ -9,6 +9,9 @@ class Anagram
     anagramWord1 = @userWord1.gsub(/[^a-zA-Z]/, '')
     anagramWord2 = @userword2.gsub(/[^a-zA-Z]/, '')
 
+    @userWord1.gsub!(/[^a-zA-Z ]/, '')
+    @userword2.gsub!(/[^a-zA-Z ]/, '')
+
 #convert to array
     wordArray1 = anagramWord1.split("")
     wordArray2 = anagramWord2.split("")
@@ -25,16 +28,25 @@ class Anagram
       wordArray1.sort!{ |a, b| a <=> b }
       wordArray2.sort!{ |a, b| a <=> b }
 
-    #prep for antigram checking
-
-
     #check if theyre equal
       if wordArray1 == wordArray2
-        true
+        "The words #{@userWord1} and #{@userword2} are anagrams!"
       else
-        false
-      end
+        wordArray1.uniq!
+        wordArray2.uniq!
 
+        totallength = wordArray1.length + wordArray2.length
+        wordArray1.concat(wordArray2)
+        wordArray1.uniq!
+        uniquelength = wordArray1.length
+
+        if totallength == uniquelength
+          "The words #{@userWord1} and #{@userword2} are not anagrams :( But! You found an antigram. They dont share any letters in common."
+
+        else
+          "The words #{@userWord1} and #{@userword2} are not anagrams :("
+        end
+      end
     else
       "FAKE WORDS. Get some vowels. Pathetic. I have great vowels. People love my vowels."
     end
