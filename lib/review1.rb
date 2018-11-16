@@ -5,6 +5,8 @@ class Anagram
   end
 
   def checker
+    #check for vowels
+
     array1 = []
     array2 = []
 
@@ -13,11 +15,11 @@ class Anagram
 
     #remove spaces
 
-    #change to upper
+    array1.map!{ |e| e.upcase }
+    array2.map!{ |e| e.upcase }
 
     array1.sort!{ |a, b| a <=> b }
     array2.sort!{ |a, b| a <=> b }
-
     if (array1 & array2 == array2)
       true
     else

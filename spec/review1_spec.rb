@@ -27,4 +27,14 @@ describe ('the class') do
         word = Anagram.new('dog', 'god')
       expect(word.checker()).to(eq(true))
       end
+
+    it('Checks if two single word non-anagrams are the same with dufferent upper case letters') do
+        word = Anagram.new('Dog', 'God')
+      expect(word.checker()).to(eq(true))
+      end
+
+    it('Checks if two single word non-anagrams are the same with dufferent upper case letters') do
+        word = Anagram.new('Dog', 'Cat')
+      expect(word.checker()).to(eq(false))
+      end
   end
