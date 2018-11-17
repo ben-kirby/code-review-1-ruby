@@ -5,33 +5,35 @@ class Anagram
   end
 
   def anagram
-#remove all non-alpha characters
+    #remove all non-alpha characters
     anagramWord1 = @userWord1.gsub(/[^a-zA-Z]/, '')
     anagramWord2 = @userword2.gsub(/[^a-zA-Z]/, '')
 
     @userWord1.gsub!(/[^a-zA-Z ]/, '')
     @userword2.gsub!(/[^a-zA-Z ]/, '')
 
-#convert to array
+    #convert to array
     wordArray1 = anagramWord1.split("")
     wordArray2 = anagramWord2.split("")
 
-#check for vowels
+    #check for vowels
     if (wordArray1.detect{ |e| e == 'a' || e == 'e' || e == 'i' || e == 'o' || e == 'u' || e == 'y'}) &&
-       (wordArray2.detect{ |e| e == 'a' || e == 'e' || e == 'i' || e == 'o' || e == 'u' || e == 'y'})
+      (wordArray2.detect{ |e| e == 'a' || e == 'e' || e == 'i' || e == 'o' || e == 'u' || e == 'y'})
 
-    #change all to upper case
+      #change all to upper case
       wordArray1.map!{ |e| e.upcase }
       wordArray2.map!{ |e| e.upcase }
 
-    #sort alphabetically
+      #sort alphabetically
       wordArray1.sort!{ |a, b| a <=> b }
       wordArray2.sort!{ |a, b| a <=> b }
 
-    #check if theyre equal
+      #check if the two arrays are equal
       if wordArray1 == wordArray2
         "The words #{@userWord1} and #{@userword2} are anagrams!"
+
       else
+        #prep for antigram check
         wordArray1.uniq!
         wordArray2.uniq!
 
